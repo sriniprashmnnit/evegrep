@@ -8,7 +8,10 @@ from flask import Flask, request, Response, render_template
 @app.route('/')
 @app.route('/index')
 def index():
-	machines = ["MSALPRASHANTH"]
+  machines = []
+  servers  = open('servers.txt','r')
+  for server in servers:
+    machines.append(server)
 
 	return render_template("index.html",
         servers = machines)
